@@ -1,15 +1,17 @@
 import React from 'react'
 import CatDetail from '../components/cat-detail'
+import './cat-compare.css';
+
 
 const CatCompare = (props) => {
     const {catRandom,callback} = props;
     return (
         <div>
-            <ul>
             {catRandom.map((cat) => {
-                return <CatDetail key={cat.id} image={cat.url} callback={receiveCallback}/>
-                })}
-            </ul>
+                return (
+                    <CatDetail key={cat.id} image={cat.url} callback={receiveCallback}/>  
+                )
+            })}
         </div>
     );
 

@@ -3,11 +3,11 @@ import React from 'react'
 const CatDetail = (props) => {
     const {image, callback} = props;
     return (
-        <li className="list-group-item" onClick={handleOnClick}>
-            <div className="media">
-                <img alt="cat" className="media-object img-rounded" height="100px" weight="100px" src={image}/>
-            </div>
-        </li>
+        
+        <div className="col-md-6" onClick={handleOnClick}>
+            <img alt="cat" className="media-object img-rounded" height="200px" weight="200px" src={image}/>
+        </div>
+        
     )
 
     function handleOnClick(){
