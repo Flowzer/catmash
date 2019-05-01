@@ -13,21 +13,32 @@ class App extends Component {
   }
 
   componentWillMount(){
-    this.getRandomNumber();
     this.getData()
   }
 
   onClickListItem(cat){
     console.log(cat)
-    /* let count = this.cat.count;
-    count += count; */
-    this.componentWillMount();
+    let index = 0;
+    index = this.state.catList.indexOf(cat);
+    if (index >=0){
+      if (cat.hasOwnProperty('count')){
+        cat.count += 1;  
+      }
+      else{
+        cat.count = 1 ;
+      }
+      let newCatList = this.state.catList;
+      newCatList[index] = cat;
+      this.setState({catList:newCatList});
+    }
+    this.getRandomNumber()
   }
 
   getRandomNumber(){
     RANDOM_NUMBER1 = Math.floor(Math.random() * 100);
     do{RANDOM_NUMBER2 = Math.floor(Math.random() * 100)}
     while(RANDOM_NUMBER1 === RANDOM_NUMBER2);
+    this.setState({catRandom:[this.state.catList[RANDOM_NUMBER1],this.state.catList[RANDOM_NUMBER2]]})
   }
 
   //Permet de récupérer les données de l'URL
@@ -37,7 +48,7 @@ class App extends Component {
 
     fetch(proxyurl + url).then(response => response.text())
       .then(contents => JSON.parse(contents))
-        .then(data => this.setState({catList:data.images,catRandom:[data.images[RANDOM_NUMBER1],data.images[RANDOM_NUMBER2]]}))
+        .then(data => this.setState({catList:data.images},function(){this.getRandomNumber()}))
           .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"));
       
   }

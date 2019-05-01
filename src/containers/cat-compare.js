@@ -9,7 +9,7 @@ const CatCompare = (props) => {
         <div>
             {catRandom.map((cat) => {
                 return (
-                    <CatDetail key={cat.id} image={cat.url} callback={receiveCallback}/>  
+                    <CatDetail key={cat.id} cat={cat} callback={receiveCallback}/>  
                 )
             })}
         </div>
