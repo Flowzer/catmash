@@ -7,6 +7,7 @@ const CatCompare = (props) => {
     const {catRandom,callback} = props;
     return (
         <div>
+            <h1>CATMASH</h1>
             {catRandom.map((cat) => {
                 return (
                     <CatDetail key={cat.id} cat={cat} callback={receiveCallback}/>  

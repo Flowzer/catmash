@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import CatCompare from './cat-compare';
 import './App.css';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import CatRanking from './cat-ranking';
 
 
 let RANDOM_NUMBER1, RANDOM_NUMBER2 = 0;
@@ -17,7 +19,6 @@ class App extends Component {
   }
 
   onClickListItem(cat){
-    console.log(cat)
     let index = 0;
     index = this.state.catList.indexOf(cat);
     if (index >=0){
@@ -31,6 +32,7 @@ class App extends Component {
       newCatList[index] = cat;
       this.setState({catList:newCatList});
     }
+    console.log(cat)
     this.getRandomNumber()
   }
 
@@ -57,16 +59,22 @@ class App extends Component {
       if (this.state.catRandom.length > 0){
         return <CatCompare catRandom={this.state.catRandom} callback={this.onClickListItem.bind(this)}/>
       }
-  }
+    }
+    const renderCatRanking = () => {
+      if (this.state.catList.length > 0){
+        return <CatRanking cat={this.state.catList}/>
+      }
+    }
+  
     return (
-      <div>
-        <div className="title">
-          <h1>CATMASH</h1>
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" render={() => renderCatCompare()}/>
+          <Route exact path="/ranking" render={() => renderCatRanking()}/>
+          <Link to="/ranking">Voir le chat le plus mignon</Link>
         </div>
-        <div className="App">
-            {renderCatCompare()}
-        </div>
-      </div>
+        
+      </BrowserRouter>
       
        
     );
