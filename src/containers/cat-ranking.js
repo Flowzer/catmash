@@ -16,9 +16,9 @@ const CatRanking = (props) => {
     );
 
     function compare(a, b) {
-        if (parseInt(a.id) > parseInt(b.id))
+        if (parseInt(a.count) > parseInt(b.count))
            return -1;
-        if (parseInt(a.id) < parseInt(b.id))
+        if (parseInt(a.count) < parseInt(b.count))
            return 1;
         return 0;
     };

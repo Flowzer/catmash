@@ -19,16 +19,12 @@ class App extends Component {
     this.getData()
   }
 
+  //Ajoute 1 vote lorsque l'on clique sur un chat 
   onClickListItem(cat){
     let index = 0;
     index = this.state.catList.indexOf(cat);
     if (index >=0){
-      if (cat.hasOwnProperty('count')){
-        cat.count += 1;  
-      }
-      else{
-        cat.count = 1 ;
-      }
+      cat.count += 1; 
       let newCatList = this.state.catList;
       newCatList[index] = cat;
       this.setState({catList:newCatList});
@@ -37,11 +33,21 @@ class App extends Component {
     this.getRandomNumber()
   }
 
+  //Génère 2 numéros aléatoire et remplit le state catRandom
   getRandomNumber(){
     RANDOM_NUMBER1 = Math.floor(Math.random() * 100);
     do{RANDOM_NUMBER2 = Math.floor(Math.random() * 100)}
     while(RANDOM_NUMBER1 === RANDOM_NUMBER2);
     this.setState({catRandom:[this.state.catList[RANDOM_NUMBER1],this.state.catList[RANDOM_NUMBER2]]});
+  }
+
+  //Rajoute la propriété count et la met a 0
+  addCountProperty(){
+    let newCatListCount = this.state.catList;
+    newCatListCount.forEach(element => {
+        element.count = 0;
+    });
+    this.setState({catList:newCatListCount},function(){this.getRandomNumber()});
   }
 
   //Permet de récupérer les données de l'URL
@@ -51,9 +57,11 @@ class App extends Component {
 
     fetch(proxyurl + url).then(response => response.text())
       .then(contents => JSON.parse(contents))
-        .then(data => this.setState({catList:data.images},function(){this.getRandomNumber()}))
+        .then(data => this.setState({catList:data.images},function(){this.addCountProperty()}))
           .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"));
-      
+    
+    
+    
   }
   render(){
     const renderCatCompare = () => {
