@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.0.0",
     "axios": "^0.18.0",
+    "babel": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
@@ -11,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "postinstall": "webpack -p",
+    "postinstall": "webpack --display-error-details",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -32,6 +35,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.5",
     "webpack-cli": "^3.3.1"
   }
 }

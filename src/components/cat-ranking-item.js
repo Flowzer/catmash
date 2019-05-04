@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const CatRankingItem = (props) => {
     const {cat} = props;
-    
+
     return (
         <li className="list-group-item">
             <div className="media">

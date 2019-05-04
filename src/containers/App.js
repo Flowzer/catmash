@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import CatCompare from './cat-compare';
 import './App.css';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import CatRanking from './cat-ranking';
+import Title from '../components/title';
 
 
 let RANDOM_NUMBER1, RANDOM_NUMBER2 = 0;
@@ -40,7 +41,7 @@ class App extends Component {
     RANDOM_NUMBER1 = Math.floor(Math.random() * 100);
     do{RANDOM_NUMBER2 = Math.floor(Math.random() * 100)}
     while(RANDOM_NUMBER1 === RANDOM_NUMBER2);
-    this.setState({catRandom:[this.state.catList[RANDOM_NUMBER1],this.state.catList[RANDOM_NUMBER2]]})
+    this.setState({catRandom:[this.state.catList[RANDOM_NUMBER1],this.state.catList[RANDOM_NUMBER2]]});
   }
 
   //Permet de récupérer les données de l'URL
@@ -69,10 +70,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
+        <Title/>
+        <Switch>
           <Route exact path="/" render={() => renderCatCompare()}/>
           <Route exact path="/ranking" render={() => renderCatRanking()}/>
-          <Link to="/ranking">Voir le chat le plus mignon</Link>
+        </Switch>
         </div>
+        
         
       </BrowserRouter>
       
