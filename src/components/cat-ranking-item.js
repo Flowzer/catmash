@@ -7,9 +7,6 @@ const CatRankingItem = (props) => {
     return (
         <li className="list-group-item">
             <div className="media">
-                <div className="media-right">
-                    <strong>1.</strong>
-                </div>
                 <div className="media-left">
                     <img alt="moreCat"className="media-object img-rounded" height="100px" width="100px" src={cat.url}/>
                 </div>

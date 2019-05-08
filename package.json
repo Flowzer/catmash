@@ -19,7 +19,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "postinstall": "webpack -p",
     "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -40,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
