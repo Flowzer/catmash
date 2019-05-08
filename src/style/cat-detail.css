@@ -1,0 +1,13 @@
+#cat-picture{
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #E0E0E0;
+}
+
+#cat:hover #cat-picture {
+    border-style: solid;
+    border-color: palegreen;
+}

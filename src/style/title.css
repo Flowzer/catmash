@@ -1,0 +1,11 @@
+#title{
+    text-decoration: none;
+    text-align: center;
+    font-size: 100px;
+    color: #4b4b4b;
+    font-family: 'SignPainter';
+}
+
+#title:hover{
+    color: white;
+}

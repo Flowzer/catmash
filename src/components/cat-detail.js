@@ -1,11 +1,12 @@
 import React from 'react';
+import '../style/cat-detail.css';
 
 const CatDetail = (props) => {
     const {cat, callback} = props;
     return (
         
-        <div className="col-md-6" onClick={handleOnClick}>
-            <img alt="cat" className="media-object img-rounded" height="200px" weight="200px" src={cat.url}/>
+        <div id="cat" className="col-md-6" onClick={handleOnClick}>
+            <img id ="cat-picture" draggable="false" alt="cat" className="media-object img-rounded" src={cat.url}/>
         </div>
         
     )

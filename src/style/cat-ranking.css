@@ -1,0 +1,8 @@
+#ranking {
+    height: 500px;
+    overflow: auto;
+}
+
+ul {
+    margin-left: 0px;
+}

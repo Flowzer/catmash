@@ -1,5 +1,6 @@
 import React from 'react';
 import CatRankingItem from '../components/cat-ranking-item';
+import '../style/cat-ranking.css';
 
 const CatRanking = (props) => {
     const {cat} = props;
@@ -7,11 +8,13 @@ const CatRanking = (props) => {
     return (
         <div>
             <h3>Classement</h3>
-            <ul>
-                {cat.sort(compare).map((cat) => {
-                return <CatRankingItem key={cat.id} cat={cat}/>
-                })}
-            </ul>
+            <div id="ranking">
+                <ul>
+                    {cat.sort(compare).map((cat) => {
+                    return <CatRankingItem key={cat.id} cat={cat}/>
+                    })}
+                </ul>
+            </div>
         </div>
     );
 

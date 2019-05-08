@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import CatCompare from './cat-compare';
-import './App.css';
+import '../style/App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import CatRanking from './cat-ranking';
 import Title from '../components/title';
