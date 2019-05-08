@@ -78,11 +78,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-        <Title/>
-        <Switch>
-          <Route exact path="/" render={() => renderCatCompare()}/>
-          <Route exact path="/ranking" render={() => renderCatRanking()}/>
-        </Switch>
+          <header>
+            <Title/>
+          </header>
+          <Switch>
+            <Route exact path="/" render={() => renderCatCompare()}/>
+            <Route exact path="/ranking" render={() => renderCatRanking()}/>
+          </Switch>
         </div>
         
         
